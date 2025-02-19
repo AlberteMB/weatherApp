@@ -1,8 +1,9 @@
 //import React from 'react';
 import { Link } from 'react-router-dom'; 
-import './style/styles.css'
+import '../style/styles.css';
 
-export default Home;
+
+
 
 const Home = () => {
   return (
@@ -25,3 +26,5 @@ const Home = () => {
     </div>
   );
 };
+
+export default Home;

@@ -1,15 +1,15 @@
 import { AppBar, Toolbar, Typography, Button, Container } from "@mui/material";
-import { styled } from "@mui/system";
+//import { styled } from "@mui/system";
 import { Link, Outlet } from "react-router-dom";
 
-const StyledLink = styled(Link)({
-    color: "#4b6cb7", // Matching the soft light gray text color
-    textDecoration: "none",
-    marginLeft: "20px",
-    "&:hover": {
-      color: "#FFFFFF", // Slightly lighter on hover
-    },
-  });
+//const StyledLink = styled(Link)({
+  //  color: "#4b6cb7", // Matching the soft light gray text color
+    //textDecoration: "none",
+    //marginLeft: "20px",
+    //"&:hover": {
+      //color: "#FFFFFF", // Slightly lighter on hover
+    //},
+  //});
 
   export default function Layout() {
     return (
@@ -28,23 +28,21 @@ const StyledLink = styled(Link)({
             >
             Weather Tracker
             </Typography>
-            <Button component={StyledLink} to="/">
+            <Button component={Link} to="/">
             Home
             </Button>
-            <Button component={StyledLink} to="/weather">
+            <Button component={Link} to="/weather">
             Weather
             </Button>
-           <Button component={StyledLink} to="/map">
+           <Button component={Link} to="/map">
             Map 
             </Button>
-            <Button component={StyledLink} to="/about">
+            <Button component={Link} to="/about">
             About
             </Button>
           </Toolbar>
         </AppBar>
-        <Container sx={{ color: "#F0F4F8" }}>
-          {" "}
-          {/* Ensuring consistent text color */}
+        <Container sx={{ color: "#F0F4F8", paddingTop: "20px" }}>
           <Outlet />
         </Container>
       </>
