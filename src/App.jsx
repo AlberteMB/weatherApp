@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Header from './components/Header.jsx'
 import About from './pages/About.jsx';
 import Weather from './pages/Weather.jsx'
@@ -7,12 +7,10 @@ import Layout from './layout/Layout.jsx';
 import NoPage from './pages/NoPage.jsx';
 import Map from './pages/Map.jsx';
 
-
 export default function App() {
-
-  return(
-  <BrowserRouter>
-    <Header />
+  return (
+    <>
+      <Header />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -22,7 +20,8 @@ export default function App() {
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
-      );
+    </>
+  );
 };
+
 

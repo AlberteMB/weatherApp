@@ -1,15 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import '../style/App.css';
 
-const containerStyle = {
-  width: "100%",
-  margin: "50px auto", // Adds 50px margin to the top and centers horizontally
-  padding: "20px",
-  border: "1px solid #ccc",
-  borderRadius: "8px",
-  boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-  backgroundColor: "#f9f9f9",
-};
 
 export default function Weather() {
   const [city, setCity] = useState("");
@@ -39,7 +31,7 @@ export default function Weather() {
         forecastResponse.data.list.filter((_, index) => index % 8 === 0)
       );
         console.log(forecastResponse);
-    } catch (err) {
+    } catch (err) { 
       setError("Failed to fetch weather data. Please try again.");
     } finally {
       setLoading(false);
@@ -48,7 +40,7 @@ export default function Weather() {
 
   useEffect(() => {
     fetchWeatherData();
-  }, []); // Fetch default data on load if needed
+  }, []); // Fetch default data on load if needed 
 
   return (
     <div>
@@ -65,7 +57,7 @@ export default function Weather() {
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       {weather && (
-        <div style={containerStyle}>
+        <div className="container-style">
           <h2>Current Weather in {weather.name}</h2>
           <p>
             Temperature:{" "}
@@ -79,7 +71,7 @@ export default function Weather() {
         </div>
       )}
       {forecast.length > 0 && (
-        <div style={containerStyle}>
+        <div className="container-style">
           <h2>5-Day Forecast</h2>
           {forecast.map((day, index) => (
             <div key={index}>
