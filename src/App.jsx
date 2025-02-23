@@ -5,7 +5,7 @@ import Weather from './pages/Weather.jsx'
 import Home from './pages/Home.jsx';
 import Layout from './layout/Layout.jsx';
 import NoPage from './pages/NoPage.jsx';
-import Map from './pages/Map.jsx';
+import Map from './pages/WeatherMap.jsx';
 
 export default function App() {
   return (

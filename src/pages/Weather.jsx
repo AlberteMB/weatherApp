@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import '../style/App.css';
-
+//import axios from "axios";
+import '../style/App.css'
+import { getWeather, getForecast } from "../middleware/data-api";  
 
 export default function Weather() {
   const [city, setCity] = useState("");
@@ -11,28 +11,17 @@ export default function Weather() {
   const [error, setError] = useState("");
 
   const fetchWeatherData = async () => {
-    if (!city) return;
+    if (!city.trim()) return;
     setLoading(true);
     setError("");
     try {
-
-     const apiKey = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
-
-      const currentWeatherResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-      );
-      setWeather(currentWeatherResponse.data);
-      console.log(currentWeatherResponse);
-
-      const forecastResponse = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
-      );
-      setForecast(
-        forecastResponse.data.list.filter((_, index) => index % 8 === 0)
-      );
-        console.log(forecastResponse);
+      const weatherData = await getWeather(city);
+      setWeather(weatherData);
+  
+      const forecastData = await getForecast(city);
+      setForecast(forecastData);
     } catch (err) { 
-      setError("Failed to fetch weather data. Please try again.");
+      setError(`Failed to fetch weather data: ${err.message}`);
     } finally {
       setLoading(false);
     }
