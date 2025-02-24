@@ -2,6 +2,7 @@
 
 /* App.css */
 body {
+  color: #044207;
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #e8f5e9; 
@@ -37,7 +38,7 @@ h1 {
   
   .description {
     font-size: 1.2rem;
-    color: #333;
+    color: #000000;
     margin-bottom: 40px;
   }
   
@@ -70,11 +71,12 @@ h1 {
     text-align: center;
   }
 
-  .containerStyle {
+  .container-style {
+    color: #044207;
     width: 100%;
     margin: 50px auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #f1f8e9; 
