@@ -3,9 +3,11 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { getCoordinates } from "../middleware/data-api"; 
 import PropTypes from "prop-types";
+import { useWeather } from "../context/WeatherContext";
 
 
-export default function WeatherMap({ city }) { 
+export default function WeatherMap() { 
+    const { city } = useWeather();
     const [coords, setCoords] = useState({ lat: 51.505, lon: -0.09 });
 
     useEffect(() => {
@@ -13,10 +15,12 @@ export default function WeatherMap({ city }) {
         if (!city) return; 
 
         getCoordinates(city)
-            .then((newCoords) => setCoords(newCoords))
-            .catch((err) => console.error(err.message));
-    // Execute when city changes
-    }, [city]); 
+        .then((newCoords) => {
+            console.log("Coordinates:", newCoords);  // Check the coordinates
+            setCoords(newCoords);
+        })
+        .catch((err) => console.error("Error fetching coordinates:", err.message));
+}, [city]);
 
     return (
         <MapContainer center={[coords.lat, coords.lon]} zoom={10} style={{ height: "400px", width: "100%" }}>
