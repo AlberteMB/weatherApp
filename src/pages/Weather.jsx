@@ -1,12 +1,12 @@
 // Using useCallback because we want to memoize the function
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback, useContext } from "react";
 //import axios from "axios";
 import '../style/App.css'
 import { getWeather, getForecast } from "../middleware/data-api";  
-import { useWeather } from "../context/WeatherContext"; 
+import { WeatherContext } from "../context/WeatherContext"; 
 
 export default function Weather() {
-  const {city, setCity} = useWeather();
+  const { city, setCity } = useContext(WeatherContext);
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -23,15 +23,15 @@ export default function Weather() {
       const forecastData = await getForecast(city);
       setForecast(forecastData);
     } catch (err) { 
-      setError(`Failed to fetch weather data: ${err.message}`);
+      setError(`${err.message}`);
     } finally {
       setLoading(false);
     }
   }, [city]);
 
-  useEffect(() => {
-    if (city) fetchWeatherData(); // Only fetch if there's a city
-  }, [city]); // Execute when city changes
+//  useEffect(() => {
+//   if (city) fetchWeatherData(); // Only fetch if there's a city
+//  }, [city]); // Execute when city changes
 
   return (
     <div>
@@ -43,7 +43,7 @@ export default function Weather() {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />{" "}
-        <button onClick={fetchWeatherData}>Search</button>
+         <button onClick={() => fetchWeatherData(city)}>Search</button>
       </div>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}

@@ -3,7 +3,7 @@ import { createContext, useState, useContext } from "react";
 import PropTypes from "prop-types";
 
 // Creating context
-const WeatherContext = createContext();
+export const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
     const [city, setCity] = useState("");
@@ -21,4 +21,6 @@ WeatherProvider.propTypes = {
     children: PropTypes.node.isRequired,
   };
 
-export const useWeather = () => useContext(WeatherContext);
+  export function useWeather() {
+    return useContext(WeatherContext);
+  }
