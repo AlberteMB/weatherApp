@@ -43,6 +43,8 @@ h1 {
   }
   
   .links-container {
+    color:blue;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     gap: 20px;

@@ -2,14 +2,6 @@ import { AppBar, Toolbar, Typography, Button, Container } from "@mui/material";
 //import { styled } from "@mui/system";
 import { Link, Outlet } from "react-router-dom";
 
-//const StyledLink = styled(Link)({
-  //  color: "#4b6cb7", // Matching the soft light gray text color
-    //textDecoration: "none",
-    //marginLeft: "20px",
-    //"&:hover": {
-      //color: "#FFFFFF", // Slightly lighter on hover
-    //},
-  //});
 
   export default function Layout() {
     return (
@@ -28,16 +20,29 @@ import { Link, Outlet } from "react-router-dom";
             >
             Weather Tracker
             </Typography>
-            <Button component={Link} to="/">
+            <Button 
+              component={Link}
+              to="/"
+              sx={{ color: "darkblue", fontWeight: "bold", textTransform: "none", fontSize: "16px" }}
+              >
             Home
             </Button>
-            <Button component={Link} to="/weather">
+            <Button component={Link} 
+              to="/weather"
+              sx={{ color: "darkblue", fontWeight: "bold", textTransform: "none", fontSize: "16px" }}
+            >
             Weather
             </Button>
-           <Button component={Link} to="/map">
+           <Button component={Link} 
+              to="/map"
+              sx={{ color: "darkblue", fontWeight: "bold", textTransform: "none", fontSize: "16px" }}
+            >
             Map 
             </Button>
-            <Button component={Link} to="/about">
+            <Button component={Link} 
+              to="/about"
+              sx={{ color: "darkblue", fontWeight: "bold", textTransform: "none", fontSize: "16px" }}
+            >
             About
             </Button>
           </Toolbar>
