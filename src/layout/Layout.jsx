@@ -23,25 +23,73 @@ import { Link, Outlet } from "react-router-dom";
             <Button 
               component={Link}
               to="/"
-              sx={{ color: "darkblue", fontWeight: "bold", textTransform: "none", fontSize: "16px" }}
+              sx={{
+                color: "darkblue", 
+                fontWeight: "bold", 
+                textTransform: "none", 
+                fontSize: "16px", 
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.05)", // Cambia el fondo al pasar el mouse
+                },
+                "&:active": {
+                  backgroundColor: "rgba(0, 0, 0, 0.1)", // Cambia el fondo al hacer clic
+                  transform: "scale(0.98)", // Reduce ligeramente el tamaño del botón
+                },
+              }}
               >
             Home
             </Button>
             <Button component={Link} 
               to="/weather"
-              sx={{ color: "darkblue", fontWeight: "bold", textTransform: "none", fontSize: "16px" }}
+              sx={{ 
+                color: "darkblue", 
+                ontWeight: "bold",
+                textTransform: "none", 
+                fontSize: "16px", 
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.05)", // Cambia el fondo al pasar el mouse
+                },
+                "&:active": {
+                  backgroundColor: "rgba(0, 0, 0, 0.1)", // Cambia el fondo al hacer clic
+                  transform: "scale(0.98)", // Reduce ligeramente el tamaño del botón
+                },
+              }}
             >
             Weather
             </Button>
            <Button component={Link} 
               to="/map"
-              sx={{ color: "darkblue", fontWeight: "bold", textTransform: "none", fontSize: "16px" }}
+              sx={{ 
+                color: "darkblue", 
+                fontWeight: "bold", 
+                textTransform: "none", 
+                fontSize: "16px",
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.05)", // Cambia el fondo al pasar el mouse
+                },
+                "&:active": {
+                  backgroundColor: "rgba(0, 0, 0, 0.1)", // Cambia el fondo al hacer clic
+                  transform: "scale(0.98)", // Reduce ligeramente el tamaño del botón
+                }       
+                            }}
             >
             Map 
             </Button>
             <Button component={Link} 
               to="/about"
-              sx={{ color: "darkblue", fontWeight: "bold", textTransform: "none", fontSize: "16px" }}
+              sx={{ 
+                color: "darkblue", 
+                fontWeight: "bold", 
+                textTransform: "none", 
+                fontSize: "16px",
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.05)", // Cambia el fondo al pasar el mouse
+                },
+                "&:active": {
+                  backgroundColor: "rgba(0, 0, 0, 0.1)", // Cambia el fondo al hacer clic
+                  transform: "scale(0.98)", // Reduce ligeramente el tamaño del botón
+                }       
+              }}
             >
             About
             </Button>
