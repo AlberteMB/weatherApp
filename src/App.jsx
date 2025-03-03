@@ -7,6 +7,8 @@ import Layout from './layout/Layout.jsx';
 import NoPage from './pages/NoPage.jsx';
 import WeatherMap from './pages/WeatherMap.jsx';
 import { WeatherProvider } from "./context/WeatherContext.jsx";
+import "leaflet/dist/leaflet.css";
+
 
 export default function App() {
   return (

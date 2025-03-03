@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 // Creating context
 export const WeatherContext = createContext();
 
-export const WeatherProvider = ({ children }) => {
-    const [city, setCity] = useState("");
+export function WeatherProvider  ({ children }) {
+    const [city, setCity] = useState("Barcelona");
 
     return (
         // Passing city and setCity to children 

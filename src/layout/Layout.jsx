@@ -58,7 +58,7 @@ import { Link, Outlet } from "react-router-dom";
             Weather
             </Button>
            <Button component={Link} 
-              to="/map"
+              to="/weathermap"
               sx={{ 
                 color: "darkblue", 
                 fontWeight: "bold", 
@@ -73,7 +73,7 @@ import { Link, Outlet } from "react-router-dom";
                 }       
                             }}
             >
-            Map 
+            Weather Map 
             </Button>
             <Button component={Link} 
               to="/about"

@@ -38,7 +38,7 @@ export const getCoordinates = async (city) => {
 
   try {
     const response = await axios.get(`${BASE_URL}/weather?q=${city}&appid=${API_KEY}&units=metric`);
-    return { lat: response.data.coord.lat, lon: response.data.coord.lon };
+    return { lat: response.data.coord.lat, lng: response.data.coord.lon };
   } catch (error) {
     handleAxiosError(error, "Failed to fetch coordinates");
   }
