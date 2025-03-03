@@ -25,7 +25,7 @@ import { Link, Outlet } from "react-router-dom";
               to="/"
               sx={{
                 color: "darkblue", 
-                fontWeight: "bold", 
+                fontWeight: "bold" ,
                 textTransform: "none", 
                 fontSize: "16px", 
                 "&:hover": {
@@ -43,7 +43,7 @@ import { Link, Outlet } from "react-router-dom";
               to="/weather"
               sx={{ 
                 color: "darkblue", 
-                ontWeight: "bold",
+                fontWeight: "bold",
                 textTransform: "none", 
                 fontSize: "16px", 
                 "&:hover": {

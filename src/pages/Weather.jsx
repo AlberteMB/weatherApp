@@ -1,7 +1,6 @@
 // Using useCallback because we want to memoize the function
 import { useState, useCallback, useContext, useEffect } from "react";
-//import axios from "axios";
-import '../style/App.css'
+import '../style/App.css';
 import { getWeather, getForecast } from "../middleware/data-api";  
 import { WeatherContext } from "../context/WeatherContext"; 
 
@@ -11,9 +10,17 @@ export default function Weather() {
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [favoriteCities, setFavoriteCities] = useState([]);
   const [selectedCity, setSelectedCity] = useState("");
- 
+  
+  const [favoriteCities, setFavoriteCities] = useState(() => {
+    const storedFavorites = localStorage.getItem("favoriteCities");
+    return storedFavorites ? JSON.parse(storedFavorites) : [];
+  });
+  
+  useEffect(() => {
+    localStorage.setItem("favoriteCities", JSON.stringify(favoriteCities));
+  }, [favoriteCities]);
+
   const fetchWeatherData = useCallback(async () => {
     if (!city.trim()) return;
     setLoading(true);
@@ -29,7 +36,6 @@ export default function Weather() {
     } finally {
       setLoading(false);
     }
-  
   }, [selectedCity]);
 
   useEffect(() => {
@@ -66,10 +72,11 @@ export default function Weather() {
       return [...prevFavorites, city];
     });
   };
+
   return (
     <div>
       <h1>Weather Tracker</h1>
-      <div style= {{ display: "flex", gap: "10px"}}>
+      <div style={{ display: "flex", gap: "10px" }}>
         <input
           type="text"
           placeholder="Enter city"
@@ -96,16 +103,13 @@ export default function Weather() {
         <div className="container-style">
         <h2>Current Weather in {weather.name}</h2>
         <p>
-          Temperature:{" "}
-          <span style={{ fontWeight: "bold", fontSize: "1.2em" }}>{Math.round(weather.main.temp)}</span> °C
+          Temperature: <span style={{ fontWeight: "bold", fontSize: "1.2em" }}>{Math.round(weather.main.temp)}</span> °C
         </p>
         <p>
-          Min Temperature:{" "}
-          <span style={{ fontWeight: "bold" }}>{Math.round(weather.main.temp_min)}</span> °C
+          Min Temperature: <span style={{ fontWeight: "bold" }}>{Math.round(weather.main.temp_min)}</span> °C
         </p>
         <p>
-          Max Temperature:{" "}
-          <span style={{ fontWeight: "bold" }}>{Math.round(weather.main.temp_max)}</span> °C
+          Max Temperature: <span style={{ fontWeight: "bold" }}>{Math.round(weather.main.temp_max)}</span> °C
         </p>
         <p>Condition: {weather.weather[0].description}</p>
       </div>
@@ -134,5 +138,3 @@ export default function Weather() {
     </div>
   );
 }
-
-
