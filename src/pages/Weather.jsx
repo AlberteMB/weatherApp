@@ -29,6 +29,7 @@ export default function Weather() {
     } finally {
       setLoading(false);
     }
+  
   }, [selectedCity]);
 
   useEffect(() => {

@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { getCoordinates } from "../middleware/data-api"; 
 import { useWeather } from "../context/WeatherContext";
 import { useMap } from "react-leaflet";
-import PropTypes from "prop-types";
+
 
 function MapUpdater({ coords }) {
     const map = useMap();
@@ -17,13 +18,6 @@ function MapUpdater({ coords }) {
     
     return null;
 }
-
-MapUpdater.propTypes = {
-    coords: PropTypes.shape({
-        lat: PropTypes.number.isRequired,
-        lng: PropTypes.number.isRequired
-    }).isRequired
-};
 
 export default function WeatherMap() { 
     const { city } = useWeather();
