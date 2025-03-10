@@ -41,5 +41,6 @@ export const getCoordinates = async (city) => {
     return { lat: response.data.coord.lat, lng: response.data.coord.lon };
   } catch (error) {
     handleAxiosError(error, "Failed to fetch coordinates");
+    return null; 
   }
 };

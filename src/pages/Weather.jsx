@@ -21,6 +21,29 @@ export default function Weather() {
     localStorage.setItem("favoriteCities", JSON.stringify(favoriteCities));
   }, [favoriteCities]);
 
+  const selectFavoriteCity = (city) => {
+    setSelectedCity(city);
+    setCity(city); 
+  };
+
+  const handleFavorites = () => {
+    if (!city.trim()) {
+      setError("Please enter a city name.");
+      return;
+    }
+
+    setFavoriteCities((prevFavorites) => {
+      if (prevFavorites.includes(city)) {
+        return prevFavorites.filter((favCity) => favCity !== city);
+      }
+      if (prevFavorites.length >= 5) {
+        setError("You have reached the maximum number of favorite cities.");
+        return prevFavorites;
+      }
+      return [...prevFavorites, city];
+    });
+  };
+
   const fetchWeatherData = useCallback(async () => {
     if (!city.trim()) return;
     setLoading(true);
@@ -49,30 +72,7 @@ export default function Weather() {
     }
     setSelectedCity(city);
   };
-
-  const selectFavoriteCity = (city) => {
-    setSelectedCity(city);
-    setCity(city); 
-  };
-
-  const handleFavorites = () => {
-    if (!city.trim()) {
-      setError("Please enter a city name.");
-      return;
-    }
-
-    setFavoriteCities((prevFavorites) => {
-      if (prevFavorites.includes(city)) {
-        return prevFavorites.filter((favCity) => favCity !== city);
-      }
-      if (prevFavorites.length >= 5) {
-        setError("You have reached the maximum number of favorite cities.");
-        return prevFavorites;
-      }
-      return [...prevFavorites, city];
-    });
-  };
-
+  
   return (
     <div>
       <h1>Weather Tracker</h1>

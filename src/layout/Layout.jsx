@@ -29,11 +29,11 @@ import { Link, Outlet } from "react-router-dom";
                 textTransform: "none", 
                 fontSize: "16px", 
                 "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.05)", // Cambia el fondo al pasar el mouse
+                  backgroundColor: "rgba(0, 0, 0, 0.05)", 
                 },
                 "&:active": {
-                  backgroundColor: "rgba(0, 0, 0, 0.1)", // Cambia el fondo al hacer clic
-                  transform: "scale(0.98)", // Reduce ligeramente el tamaño del botón
+                  backgroundColor: "rgba(0, 0, 0, 0.1)", 
+                  transform: "scale(0.98)", 
                 },
               }}
               >
@@ -47,11 +47,11 @@ import { Link, Outlet } from "react-router-dom";
                 textTransform: "none", 
                 fontSize: "16px", 
                 "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.05)", // Cambia el fondo al pasar el mouse
+                  backgroundColor: "rgba(0, 0, 0, 0.05)", 
                 },
                 "&:active": {
-                  backgroundColor: "rgba(0, 0, 0, 0.1)", // Cambia el fondo al hacer clic
-                  transform: "scale(0.98)", // Reduce ligeramente el tamaño del botón
+                  backgroundColor: "rgba(0, 0, 0, 0.1)", 
+                  transform: "scale(0.98)", 
                 },
               }}
             >
@@ -65,11 +65,11 @@ import { Link, Outlet } from "react-router-dom";
                 textTransform: "none", 
                 fontSize: "16px",
                 "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.05)", // Cambia el fondo al pasar el mouse
+                  backgroundColor: "rgba(0, 0, 0, 0.05)", 
                 },
                 "&:active": {
-                  backgroundColor: "rgba(0, 0, 0, 0.1)", // Cambia el fondo al hacer clic
-                  transform: "scale(0.98)", // Reduce ligeramente el tamaño del botón
+                  backgroundColor: "rgba(0, 0, 0, 0.1)", 
+                  transform: "scale(0.98)", 
                 }       
                             }}
             >
@@ -83,11 +83,11 @@ import { Link, Outlet } from "react-router-dom";
                 textTransform: "none", 
                 fontSize: "16px",
                 "&:hover": {
-                  backgroundColor: "rgba(0, 0, 0, 0.05)", // Cambia el fondo al pasar el mouse
+                  backgroundColor: "rgba(0, 0, 0, 0.05)", 
                 },
                 "&:active": {
-                  backgroundColor: "rgba(0, 0, 0, 0.1)", // Cambia el fondo al hacer clic
-                  transform: "scale(0.98)", // Reduce ligeramente el tamaño del botón
+                  backgroundColor: "rgba(0, 0, 0, 0.1)", 
+                  transform: "scale(0.98)", 
                 }       
               }}
             >
