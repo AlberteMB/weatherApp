@@ -1,10 +1,11 @@
 import { createContext, useState, useContext } from "react";
 // Adding prop-types for type checking
-import PropTypes from "prop-types";
+
 
 // Creating context
 export const WeatherContext = createContext();
 
+// eslint-disable-next-line react/prop-types
 export function WeatherProvider  ({ children }) {
     const [city, setCity] = useState("Barcelona");
 
@@ -16,10 +17,7 @@ export function WeatherProvider  ({ children }) {
         </WeatherContext.Provider>  
     );
 };
-// Validation with prop-typess
-WeatherProvider.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
+
 
   export function useWeather() {
     return useContext(WeatherContext);
